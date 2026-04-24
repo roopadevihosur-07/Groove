@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --teal:        #3BBFBF;
+  --teal-dark:   #2A9D9D;
+  --teal-light:  #E4F7F7;
+  --teal-mid:    #A8E0E0;
+  --blue:        #5BA4CF;
+  --blue-light:  #EAF4FB;
+  --coral:       #F07167;
+  --coral-light: #FEF0EF;
+  --amber:       #F4A261;
+  --amber-light: #FEF5EC;
+  --green:       #52B788;
+  --green-light: #EBF7F2;
+  --purple:      #9B8EC4;
+  --purple-light:#F2F0FA;
+  --bg:          #F0F7F8;
+  --card-bg:     #FFFFFF;
+  --text-primary:#1A2E3B;
+  --text-secondary:#5A7184;
+  --text-muted:  #9BB0BE;
+  --border:      rgba(0,0,0,0.07);
+  --shadow-sm:   0 2px 10px rgba(59,191,191,0.1);
+  --shadow-md:   0 6px 24px rgba(59,191,191,0.15);
+  --shadow-lg:   0 12px 40px rgba(59,191,191,0.2);
+  --radius-sm:   14px;
+  --radius-md:   20px;
+  --radius-lg:   28px;
+  --radius-xl:   36px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── App shell ──────────────────────────────────────────────── */
+.app-root {
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--bg);
+  position: relative;
+}
+
+/* ── Bottom nav ─────────────────────────────────────────────── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0 16px;
+  z-index: 100;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px 10px;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-item.active { color: var(--teal); }
+.nav-item span { font-size: 11px; font-weight: 600; }
+
+.nav-icon-wrap {
+  width: 44px; height: 44px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.nav-item.active .nav-icon-wrap { background: var(--teal-light); }
+
+/* ── Section header ─────────────────────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-bottom: 14px;
+}
+.section-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.section-link {
+  font-size: 13px; color: var(--teal); font-weight: 600;
+  cursor: pointer; background: none; border: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── White card ─────────────────────────────────────────────── */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  margin: 0 20px;
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.btn-primary {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 28px;
+  border-radius: 99px;
+  border: none;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--blue) 100%);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 0 4px 16px rgba(59,191,191,0.35);
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-primary:active { transform: scale(0.97); }
+.btn-primary:disabled { opacity: 0.5; cursor: default; transform: none; }
+
+.btn-ghost {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 99px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-ghost:hover { background: var(--teal-light); border-color: var(--teal-mid); color: var(--teal-dark); }
+
+/* ── Inputs ─────────────────────────────────────────────────── */
+input, textarea, select {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  background: #fff;
+  color: var(--text-primary);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+input:focus, textarea:focus, select:focus { border-color: var(--teal); }
+label { font-size: 14px; color: var(--text-secondary); font-weight: 600; margin-bottom: 6px; display: block; }
+
+/* ── Live badge ─────────────────────────────────────────────── */
+.live-badge {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--green-light);
+  border: 1px solid rgba(82,183,136,0.3);
+  border-radius: 99px; padding: 4px 12px;
+  font-size: 12px; font-weight: 700; color: var(--green);
+}
+.live-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--green); animation: livePulse 1.5s ease infinite;
+}
+@keyframes livePulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+
+/* ── Alert card ─────────────────────────────────────────────── */
+.alert-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  border-left: 5px solid var(--coral);
+  transition: all 0.15s;
+}
+.alert-card:hover { box-shadow: var(--shadow-md); }
+.alert-card-title { font-size: 15px; font-weight: 700; color: var(--coral); margin-bottom: 5px; }
+.alert-card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+.alert-detail { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.red-flag-item { display: flex; gap: 6px; align-items: flex-start; margin-bottom: 5px; font-size: 13px; color: var(--text-secondary); }
+.how-respond {
+  background: var(--green-light); border-radius: var(--radius-sm);
+  padding: 12px 14px; font-size: 13px; color: var(--green); font-weight: 600;
+  display: flex; gap: 8px; align-items: flex-start; margin-top: 10px;
+}
+
+/* ── Reminder card ──────────────────────────────────────────── */
+.reminder-card {
+  background: var(--card-bg); border-radius: var(--radius-md);
+  padding: 16px 18px; display: flex; align-items: center;
+  gap: 14px; box-shadow: var(--shadow-sm);
+}
+.reminder-icon-wrap {
+  width: 50px; height: 50px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.reminder-title { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+.reminder-time { font-size: 13px; color: var(--text-muted); margin-top: 3px; }
+
+/* ── Event feed ─────────────────────────────────────────────── */
+.event-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+}
+.event-icon-wrap {
+  width: 38px; height: 38px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.event-label { font-size: 14px; font-weight: 700; }
+.event-detail { font-size: 12px; color: var(--text-muted); margin-top: 3px; line-height: 1.4; }
+.event-time { font-size: 11px; color: var(--text-muted); white-space: nowrap; margin-top: 2px; }
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.fade-up { animation: fadeUp 0.35s ease both; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@keyframes orbPulse {
+  0%   { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes wave {
+  0%,100% { transform: scaleY(0.3); }
+  50%     { transform: scaleY(1); }
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--teal-mid); border-radius: 99px; }
