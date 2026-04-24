@@ -14,8 +14,8 @@ const EVENT_CONFIG = {
 
 function StatCard({ label, value, icon: Icon, color, bg }) {
   return (
-    <div style={{ background: bg, borderRadius: 'var(--radius-md)', padding: '16px', display: 'flex', gap: 12, alignItems: 'center', boxShadow: 'var(--shadow-sm)' }}>
-      <div style={{ width: 46, height: 46, borderRadius: 14, background: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+    <div style={{ background: 'rgba(255,255,255,0.06)', backdropFilter:'blur(20px)', WebkitBackdropFilter:'blur(20px)', border:'1px solid rgba(255,255,255,0.12)', borderRadius: 'var(--radius-md)', padding: '16px', display: 'flex', gap: 12, alignItems: 'center', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }}>
+      <div style={{ width: 46, height: 46, borderRadius: 14, background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
         <Icon size={22} color={color} />
       </div>
       <div>
@@ -55,7 +55,7 @@ export default function FamilyDashboard() {
     <div className="dashboard-page" style={{ padding: '0 0 20px' }}>
 
       {/* Header */}
-      <div style={{ background: 'linear-gradient(135deg, var(--teal) 0%, var(--blue) 100%)', padding: '24px 20px 28px', marginBottom: 0 }}>
+      <div style={{ background: 'linear-gradient(135deg,rgba(59,191,191,0.25),rgba(91,164,207,0.15))', backdropFilter:'blur(20px)', WebkitBackdropFilter:'blur(20px)', borderBottom:'1px solid rgba(255,255,255,0.12)', padding: '24px 20px 28px', marginBottom: 0 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <div>
             <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.8)', marginBottom: 4 }}>Family Monitor</div>
@@ -82,7 +82,7 @@ export default function FamilyDashboard() {
           <div className="section-title">Live Activity</div>
           {isConnected && <div className="live-badge"><div className="live-dot" /> Live</div>}
         </div>
-        <div className="card" style={{ margin: '0 20px' }}>
+        <div style={{ background:'rgba(255,255,255,0.06)', backdropFilter:'blur(20px)', WebkitBackdropFilter:'blur(20px)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:26, padding:22, boxShadow:'0 8px 32px rgba(0,0,0,0.3)', margin:'0 20px' }}>
           {liveEvents.length === 0 && (
             <p style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: 14, padding: '20px 0' }}>Waiting for activity…</p>
           )}
@@ -116,7 +116,7 @@ export default function FamilyDashboard() {
         <div className="section-header">
           <div className="section-title">Recent Calls</div>
         </div>
-        <div className="card" style={{ margin: '0 20px' }}>
+        <div style={{ background:'rgba(255,255,255,0.06)', backdropFilter:'blur(20px)', WebkitBackdropFilter:'blur(20px)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:26, padding:22, boxShadow:'0 8px 32px rgba(0,0,0,0.3)', margin:'0 20px' }}>
           {recentCalls.length === 0 && <p style={{ fontSize: 14, color: 'var(--text-muted)' }}>No calls yet.</p>}
           {recentCalls.map((call, i) => (
             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: i < recentCalls.length - 1 ? '1px solid var(--border)' : 'none' }}>
@@ -140,7 +140,7 @@ export default function FamilyDashboard() {
         <div className="section-header">
           <div className="section-title">Upcoming Reminders</div>
         </div>
-        <div className="card" style={{ margin: '0 20px' }}>
+        <div style={{ background:'rgba(255,255,255,0.06)', backdropFilter:'blur(20px)', WebkitBackdropFilter:'blur(20px)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:26, padding:22, boxShadow:'0 8px 32px rgba(0,0,0,0.3)', margin:'0 20px' }}>
           {reminders.length === 0 && <p style={{ fontSize: 14, color: 'var(--text-muted)' }}>No reminders scheduled.</p>}
           {reminders.slice(0, 4).map((r, i) => (
             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: i < Math.min(reminders.length, 4) - 1 ? '1px solid var(--border)' : 'none' }}>

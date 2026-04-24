@@ -1,43 +1,17 @@
 import { useState } from 'react';
-import { Shield, CheckSquare, HelpCircle, MessageCircle, Mic } from 'lucide-react';
+import { Shield, CheckSquare, HelpCircle, MessageCircle, Mic, LayoutDashboard } from 'lucide-react';
 import ScamProtection from './tabs/ScamProtection';
 import ToDoList from './tabs/ToDoList';
 import HelpMe from './tabs/HelpMe';
 import AskQuestion from './tabs/AskQuestion';
+import FamilyDashboard from './FamilyDashboard';
 
 const TABS = [
-  {
-    id: 'scam',
-    label: 'Scam Guard',
-    icon: Shield,
-    color: '#F07167',
-    bg: '#FEF0EF',
-    activeColor: '#F07167',
-  },
-  {
-    id: 'todo',
-    label: 'To-Do List',
-    icon: CheckSquare,
-    color: '#F4A261',
-    bg: '#FEF5EC',
-    activeColor: '#F4A261',
-  },
-  {
-    id: 'help',
-    label: 'Help Me',
-    icon: HelpCircle,
-    color: '#52B788',
-    bg: '#EBF7F2',
-    activeColor: '#52B788',
-  },
-  {
-    id: 'ask',
-    label: 'Ask Away',
-    icon: MessageCircle,
-    color: '#5BA4CF',
-    bg: '#EAF4FB',
-    activeColor: '#5BA4CF',
-  },
+  { id: 'scam',      label: 'Scam Guard', icon: Shield,           color: '#F07167', bg: '#FEF0EF' },
+  { id: 'todo',      label: 'To-Do',      icon: CheckSquare,      color: '#F4A261', bg: '#FEF5EC' },
+  { id: 'help',      label: 'Help Me',    icon: HelpCircle,       color: '#52B788', bg: '#EBF7F2' },
+  { id: 'ask',       label: 'Ask Away',   icon: MessageCircle,    color: '#5BA4CF', bg: '#EAF4FB' },
+  { id: 'dashboard', label: 'Dashboard',  icon: LayoutDashboard,  color: '#9B8EC4', bg: '#F2F0FA' },
 ];
 
 export default function MainTabs({ initialTab = 'scam', onBack }) {
@@ -45,13 +19,17 @@ export default function MainTabs({ initialTab = 'scam', onBack }) {
   const current = TABS.find((t) => t.id === activeTab) || TABS[0];
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg)', paddingBottom: 88 }}>
+    <div style={{ minHeight: '100vh', paddingBottom: 88 }}>
 
       {/* Top bar */}
       <div style={{
-        background: 'linear-gradient(135deg, var(--teal) 0%, var(--blue) 100%)',
+        background: 'rgba(10,25,40,0.7)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(255,255,255,0.1)',
         padding: '16px 20px 20px',
         display: 'flex', alignItems: 'center', gap: 14,
+        boxShadow: '0 4px 30px rgba(0,0,0,0.3)',
       }}>
         <button
           onClick={onBack}
@@ -78,10 +56,11 @@ export default function MainTabs({ initialTab = 'scam', onBack }) {
 
       {/* Tab content */}
       <div style={{ paddingTop: 4 }}>
-        {activeTab === 'scam' && <ScamProtection />}
-        {activeTab === 'todo' && <ToDoList />}
-        {activeTab === 'help' && <HelpMe />}
-        {activeTab === 'ask'  && <AskQuestion />}
+        {activeTab === 'scam'      && <ScamProtection />}
+        {activeTab === 'todo'      && <ToDoList />}
+        {activeTab === 'help'      && <HelpMe />}
+        {activeTab === 'ask'       && <AskQuestion />}
+        {activeTab === 'dashboard' && <FamilyDashboard />}
       </div>
 
       {/* Bottom nav */}
